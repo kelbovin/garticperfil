@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    body {
+      background-color: blue;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .bloco {
+      display: block;
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid white;
+    }
+
+    .cabecalho {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .conteudo {
+      margin-bottom: 20px;
+    }
+
+    .botoes {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .botaoLaranja, .botaoCinza {
+      padding: 10px 20px;
+      background-color: orange;
+      color: white;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .botaoCinza {
+      background-color: gray;
+    }
+
+    .usuario {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      margin-right: 10px;
+    }
+
+    .dados strong {
+      font-weight: bold;
+    }
+
+    .rodape {
+      height: 20px;
+      background-color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="blocoLogin" class="bloco ocultarMobile">
+    <div class="cabecalho">
+      <h1>LOGIN</h1>
+    </div>
+    <div class="conteudo">
+      <div id="blocoDeslogado">
+        <hr>
+        <form action="/log.php" method="post" onsubmit="efetuarLogin(); return false;">
+          <input type="text" placeholder="Login" name="userLogin" id="userLogin">
+          <input type="password" placeholder="Senha" name="senhaLogin" id="senhaLogin">
+          <a href="/recuperar-senha/" class="esqueceuSenha">Esqueci minha senha</a>
+          <div class="botoes">
+            <input type="submit" class="botaoLaranja" value="Login">
+            <a href="/cadastro" class="cadastrar botaoCinza">Cadastrar</a>
+          </div>
+        </form>
+      </div>
+      <div id="blocoLogado">
+        <div class="usuario">
+          <div class="avatar">
+            <div></div>
+          </div>
+          <div class="dados">
+            <strong>Nick:</strong> <span id="dadosLogin"></span><br>
+            <strong>Pontos:</strong> <span id="dadosPontos"></span><br>
+            <strong>Vitorias:</strong> <span id="dadosVitorias"></span>
+          </div>
+        </div>
+        <div class="botoes">
+          <a href="/" id="dadosUrlPerfil" class="perfil botaoCinza">Perfil</a>
+          <a href="/deslog.php" onclick="efetuarDeslog(); return false;" class="deslogar botaoCinza">Deslogar</a>
+        </div>
+      </div>
+    </div>
+    <div class="rodape"></div>
+  </div>
+</body>
+</html>
